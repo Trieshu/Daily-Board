@@ -75,3 +75,26 @@ const cariTugasDebounced = debounce((katakunci) => {
 inputCari.addEventListener("input", (event) => {
     cariTugasDebounced(event.target.value);
 });
+
+import {
+    tambahTugas,
+    hapusTugas,
+    editTugas,
+    toggleTugas,
+    filterTugas
+} from "./modules/tugas.js";
+
+import {
+    tambahCatatan,
+    hapusCatatan,
+    editCatatan
+} from "./modules/catatan.js";
+
+import {
+    simpanData,
+    ambilData
+} from "./modules/storage.js";
+
+import {
+    ambilKutipan
+} from "./modules/api.js";
