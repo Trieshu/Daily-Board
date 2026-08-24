@@ -17,7 +17,7 @@ cuaca.appendChild(infoCuaca);
 
 kolomKanan.appendChild(cuaca);
 
-async function ambilCuaca(kota) {
+export async function ambilCuaca(kota) {
     const apiKey = "5149aba722871f4e343fbb456371136c";
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(kota)}&appid=${apiKey}&units=metric&lang=id`;
@@ -76,7 +76,7 @@ kutipan.appendChild(tombolKutipan);
 
 cuaca.appendChild(kutipan);
 
-async function ambilKutipan() {
+export async function ambilKutipan() {
     try {
         const response = await fetch("https://dummyjson.com/quotes/random");
 
