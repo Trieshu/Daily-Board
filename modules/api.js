@@ -99,3 +99,29 @@ renderTugas();
 
 muatCatatanDariStorage();
 renderCatatan();
+
+const toggleTema = document.createElement("button");
+toggleTema.id = "toggle-tema";
+
+toggleTema.textContent = "Dark Mode";
+
+document.querySelector("header").appendChild(toggleTema);
+
+toggleTema.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    
+    const modeAktif = document.body.classList.contains("dark-mode");
+    
+    localStorage.setItem("tema", modeAktif ? "gelap" : "terang");
+    
+    toggleTema.textContent = modeAktif ? "Light Mode" : "Dark Mode";
+});
+
+function muatTema() {
+    if (localStorage.getItem("tema") === "gelap") {
+        document.body.classList.add("dark-mode");
+        toggleTema.textContent = "Light Mode"
+    }
+}
+
+window.addEventListener("DOMContentLoaded",muatSemuaWidget); 
