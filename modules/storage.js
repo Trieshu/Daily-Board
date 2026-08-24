@@ -1,8 +1,8 @@
-function simpanKeStorage() {
+export function simpanKeStorage() {
     localStorage.setItem("daftarTugas",JSON.stringify(daftarTugas));
 }
 
-function muatDariStorage() {
+export function muatDariStorage() {
     const data = localStorage.getItem("daftarTugas");
 
     if (data) {
@@ -14,11 +14,11 @@ function muatDariStorage() {
     }
 }
 
-function simpanCatatanKeStorage() {
+export function simpanCatatanKeStorage() {
     localStorage.setItem("daftarCatatan",JSON.stringify(daftarCatatan));
 }
 
-function muatCatatanDariStorage() {
+export function muatCatatanDariStorage() {
     const data = localStorage.getItem("daftarCatatan");
 
     if (data) {
