@@ -39,7 +39,7 @@ let daftarTugas = [
 
 let nextId = 3;
 
-function validasiInput(nilai) {
+export function validasiInput(nilai) {
     if (nilai.trim() === "") {
         alert("Input tidak boleh kosong!");
         return false;
@@ -53,7 +53,7 @@ function validasiInput(nilai) {
     return true;
 }
 
-function tambahTugas(nama) {
+export function tambahTugas(nama) {
     if (!validasiInput(nama)) {
         return;
     }
@@ -69,7 +69,7 @@ function tambahTugas(nama) {
 }
 
 
-function editTugas(id, namaBaru) {
+export function editTugas(id, namaBaru) {
     if (!validasiInput(namaBaru)) {
         return;
     }
@@ -82,7 +82,7 @@ function editTugas(id, namaBaru) {
     renderTugas();
 }
 
-function hapusTugas(id) {
+export function hapusTugas(id) {
     daftarTugas = daftarTugas.filter((t) => t.id !== id
     );
 
@@ -90,7 +90,7 @@ function hapusTugas(id) {
     renderTugas();
 }
 
-function toggleSelesai(id) {
+export function toggleSelesai(id) {
     daftarTugas = daftarTugas.map((t) =>
         t.id === id ? { ...t, selesai: !t.selesai }: t
     );
@@ -100,7 +100,7 @@ function toggleSelesai(id) {
 }
 
 
-function aktifkanDragDrop() {
+export function aktifkanDragDrop() {
     const items = document.querySelectorAll(".tugas-item");
 
     items.forEach((item) => {
@@ -145,7 +145,7 @@ function aktifkanDragDrop() {
     });
 }
 
-function renderTugas(filter = "semua") {
+export function renderTugas(filter = "semua") {
     list.innerHTML = "";
 
     const tugasTersaring =
