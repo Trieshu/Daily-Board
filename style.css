@@ -1,0 +1,50 @@
+body {
+    font: 'New times roman', sans-serif;
+}
+
+h1 {
+    text-align: left;
+
+}
+
+h2 {
+    text-align: center;
+
+}
+
+header {
+    border-bottom: 2px solid grey;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
+section {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+
+}
+
+body.dark-mode h2 {
+    color: white;
+}
+
+#toggle-tema{
+    position: absolute;
+    right: 10px;
+}
+
