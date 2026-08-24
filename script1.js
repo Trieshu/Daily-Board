@@ -1,10 +1,36 @@
+import {
+    tambahTugas,
+    hapusTugas,
+    editTugas,
+    toggleTugas,
+    filterTugas
+} from "./modules/tugas.js";
+
+import {
+    tambahCatatan,
+    hapusCatatan,
+    editCatatan
+} from "./modules/catatan.js";
+
+import {
+    simpanData,
+    ambilData
+} from "./modules/storage.js";
+
+import {
+    ambilKutipan
+} from "./modules/api.js";
+
+let daftarTugas = ambilData("tugas", []);
+let daftarCatatan = ambilData("catatan", []);
+
 const app = document.getElementById("app");
 
 const judul = document.createElement("h2");
 judul.textContent = "Selamat datang di DailyBoard!";
-app.appendChild(judul);
-
 judul.style.color = "#070d1a";
+
+app.appendChild(judul);
 
 const dashboard = document.createElement("div");
 dashboard.className = "dashboard";
@@ -19,32 +45,6 @@ app.appendChild(dashboard);
 
 dashboard.appendChild(kolomKanan);
 dashboard.appendChild(kolomKiri);
-
-const toggleTema = document.createElement("button");
-toggleTema.id = "toggle-tema";
-
-toggleTema.textContent = "Dark Mode";
-
-document.querySelector("header").appendChild(toggleTema);
-
-toggleTema.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-    
-    const modeAktif = document.body.classList.contains("dark-mode");
-    
-    localStorage.setItem("tema", modeAktif ? "gelap" : "terang");
-    
-    toggleTema.textContent = modeAktif ? "Light Mode" : "Dark Mode";
-});
-
-function muatTema() {
-    if (localStorage.getItem("tema") === "gelap") {
-        document.body.classList.add("dark-mode");
-        toggleTema.textContent = "Light Mode"
-    }
-}
-
-window.addEventListener("DOMContentLoaded",muatSemuaWidget); 
 
 function debounce(fn, delay = 300) {
     let timer;
@@ -76,25 +76,3 @@ inputCari.addEventListener("input", (event) => {
     cariTugasDebounced(event.target.value);
 });
 
-import {
-    tambahTugas,
-    hapusTugas,
-    editTugas,
-    toggleTugas,
-    filterTugas
-} from "./modules/tugas.js";
-
-import {
-    tambahCatatan,
-    hapusCatatan,
-    editCatatan
-} from "./modules/catatan.js";
-
-import {
-    simpanData,
-    ambilData
-} from "./modules/storage.js";
-
-import {
-    ambilKutipan
-} from "./modules/api.js";
