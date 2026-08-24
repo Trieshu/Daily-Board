@@ -20,7 +20,7 @@ catatan.appendChild(containerCatatan);
 
 let daftarCatatan = [];
 
-function tambahCatatan(isi) {
+export function tambahCatatan(isi) {
     if (!validasiInput(isi)) {
         return;
     }
@@ -36,7 +36,7 @@ function tambahCatatan(isi) {
 }
 
 
-function editCatatan(id,isiBaru) {
+export function editCatatan(id,isiBaru) {
     if (!validasiInput(isiBaru)) {
         return;
     }
@@ -47,7 +47,7 @@ function editCatatan(id,isiBaru) {
     renderCatatan();
 }
 
-function hapusCatatan(id) {
+export function hapusCatatan(id) {
   daftarCatatan = daftarCatatan.filter((catatan)) => catatan.id !== id
   );
   simpanCatatanKeStorage();
@@ -55,7 +55,7 @@ function hapusCatatan(id) {
 }
   
 
-function renderCatatan() {
+export function renderCatatan() {
     containerCatatan.innerHTML = "";
 
     daftarCatatan.forEach((catatan) => {
