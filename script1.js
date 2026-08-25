@@ -317,6 +317,12 @@ function muatCatatanDariStorage() {
     }
 }
 
+function hapusCatatan(id) {
+  daftarCatatan = daftarCatatan.filter((catatan)) => catatan.id !== id
+  );
+  simpanCatatanKeStorage();
+  renderCatatan();
+}
 
 function tambahCatatan(isi) {
     if (!validasiInput(isi)) {
@@ -345,12 +351,6 @@ function editCatatan(id,isiBaru) {
     renderCatatan();
 }
 
-function hapusCatatan(id) {
-  daftarCatatan = daftarCatatan.filter((catatan)) => catatan.id !== id
-  );
-  simpanCatatanKeStorage();
-  renderCatatan();
-}
 
 function renderCatatan() {
     containerCatatan.innerHTML = "";
@@ -423,7 +423,7 @@ cuaca.appendChild(infoCuaca);
 kolomKanan.appendChild(cuaca);
 
 async function ambilCuaca(kota) {
-    const apiKey = "5149aba722871f4e343fbb456371136c";
+    const apiKey="f2851a2fcf52fea1056c47b3603cff1b";
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(kota)}&appid=${apiKey}&units=metric&lang=id`;
 
@@ -474,7 +474,6 @@ isiKutipan.textContent = "Memuat kutipan...";
 
 const tombolKutipan = document.createElement("button");
 tombolKutipan.textContent = "Ganti kutipan";
-tombolKutipan.id = "ganti-kutipan";
 
 kutipan.appendChild(judulKutipan);
 kutipan.appendChild(isiKutipan);
@@ -497,8 +496,11 @@ async function ambilKutipan() {
         isiKutipan.textContent = "Kutipan gagal dimuat.";
     }
 }
+tombolKutipan.addEventListener("click", ambilKutipan);
 
 ambilKutipan();
+
+muatDariStorage();
 renderTugas();
 
 muatCatatanDariStorage();
@@ -523,7 +525,6 @@ function muatTema() {
     }
 }
 
-window.addEventListener("DOMContentLoaded",muatSemuaWidget); 
 
 
-    
+window.addEventListener("DOMContentLoaded",muatTema); 
